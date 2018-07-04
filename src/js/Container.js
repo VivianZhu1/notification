@@ -1,4 +1,4 @@
-import '../css/App.css'
+import '../styles/App.scss'
 import React, { Component } from 'react';
 import {Switch, Route, Link, BrowserRouter as Router} from 'react-router-dom'
 import Header from './components/Header';

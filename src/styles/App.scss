@@ -54,8 +54,13 @@ body{
   width: 80px;
   height:30px;
   font-size: 9pt;
-  margin-left: 5px;
+  margin-left: 3px;
 
+}
+.cfg_btn_addtag {
+  @extend .cfg_btn;
+  margin-left:10px;
+  box-shadow: 1px 1px 20px 1px grey;
 }
 
 .my-container{
@@ -65,7 +70,7 @@ body{
 }
 
 .ntfConfig{
-  width:600px;
+  width:80%;
   /* height:120px;  */
   /* outline: 0px solid grey; */
   box-shadow: 5px 5px 20px 1px grey;
@@ -74,7 +79,7 @@ body{
 }
 
 .ntfTextArea{
-  width:600px;
+  width:80%;
   height:100px; 
   /* outline: 1px solid grey; */
   box-shadow: 5px 5px 20px 1px grey;
@@ -115,6 +120,8 @@ body{
 
 }
 
+
+
 /* .cfg_btn:focus{ */
   /* background-color: white;
   color:#138496;
@@ -124,6 +131,7 @@ body{
 /* form-control{
   marginLeft: 50px;
 } */
+
 
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }

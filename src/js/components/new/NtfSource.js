@@ -11,40 +11,40 @@ export default class NtfSource extends Component{
             <div className="container" style={{fontSize:"10pt", display:"inline-block", fontWeight:"bold", color:"#0f5b67"}}> 
                   <div className="row" style={{ marginTop:"20px", marginBottom:"20px" }}>
                     <div className="column" style={{width:"50%", marginLeft:"30px"}}>
-                        <div class="form-check">
-                            <input type="checkbox" className="form-check-input" id="checkbox1" checked="false"/>
-                            <label className="form-check-label" for="checkbox1">Oracle Marketing Cloud</label>
+                        <div className="form-check">
+                            <input type="checkbox" className="form-check-input" id="checkbox1" defaultChecked="true"/>
+                            <label className="form-check-label" htmlFor="checkbox1">Oracle Marketing Cloud</label>
                         </div>
-                        <div class="form-check">
-                            <input type="checkbox" className="form-check-input" id="checkbox2" checked="false"/>
-                            <label className="form-check-label" for="checkbox2">Infinity</label>
+                        <div className="form-check">
+                            <input type="checkbox" className="form-check-input" id="checkbox2"defaultChecked="true" />
+                            <label className="form-check-label" htmlFor="checkbox2">Infinity</label>
                         </div>
-                        <div class="form-check">
+                        <div className="form-check">
                             <input type="checkbox" className="form-check-input" id="checkbox3"/>
-                            <label className="form-check-label" for="checkbox3">Eloqua</label>
+                            <label className="form-check-label" htmlFor="checkbox3">Eloqua</label>
                         </div>
-                        <div class="form-check">
+                        <div className="form-check">
                             <input type="checkbox" className="form-check-input" id="checkbox4"/>
-                            <label className="form-check-label" for="checkbox4">Responsys</label>
+                            <label className="form-check-label" htmlFor="checkbox4">Responsys</label>
                         </div>
                     </div>
 
                     <div className="column">
-                        <div class="form-check">
+                        <div className="form-check">
                             <input type="checkbox" className="form-check-input" id="checkbox5"/>
-                            <label className="form-check-label" for="checkbox5">Maxymiser</label>
+                            <label className="form-check-label" htmlFor="checkbox5">Maxymiser</label>
                         </div>
-                        <div class="form-check">
+                        <div className="form-check">
                             <input type="checkbox" className="form-check-input" id="checkbox6"/>
-                            <label className="form-check-label" for="checkbox6">Social</label>
+                            <label className="form-check-label" htmlFor="checkbox6">Social</label>
                         </div>
-                        <div class="form-check">
+                        <div className="form-check">
                             <input type="checkbox" className="form-check-input" id="checkbox7"/>
-                            <label className="form-check-label" for="checkbox7">BlueKai</label>
+                            <label className="form-check-label" htmlFor="checkbox7">BlueKai</label>
                         </div>
-                        <div class="form-check">
+                        <div className="form-check">
                             <input type="checkbox" className="form-check-input" id="checkbox8"/>
-                            <label className="form-check-label" for="checkbox8">Compendium</label>
+                            <label className="form-check-label" htmlFor="checkbox8">Compendium</label>
                         </div>
                     </div>
                  </div>

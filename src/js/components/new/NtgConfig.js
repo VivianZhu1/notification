@@ -27,13 +27,3 @@ export default class NtfConfig extends Component{
         );
     }
 }
-
-class Category extends Component{
-    render(){
-        return(
-            <div>
-               <radioButton>Annoucemenet</radioButton>
-            </div>
-        );
-    }
-}

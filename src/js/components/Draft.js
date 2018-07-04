@@ -20,7 +20,7 @@ export default class Draft extends Component{
                     <TabPane tab='tab 1' key="1">first</TabPane>
                     <TabPane tab='tab 2' key="2">second</TabPane>
                     <TabPane tab='tab 3' key="3">third</TabPane>
-                    </Tabs>
+             </Tabs>
             </div>
         );
     }
