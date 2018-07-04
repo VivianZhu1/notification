@@ -5,10 +5,7 @@ import Container from './js/Container';
 // import registerServiceWorker from './registerServiceWorker';
 
 
-import { BrowserRouter as Router } from 'react-router-dom'
-
-ReactDOM.render(<Router>
+ReactDOM.render(
     <Container />
-    </Router>
 , document.getElementById('root'));
 // registerServiceWorker();
