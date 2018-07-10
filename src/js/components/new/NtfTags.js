@@ -1,5 +1,6 @@
 import React from 'react';
 import { WithContext as ReactTags } from 'react-tag-input';
+import '../../../styles/Taginput.scss'
  
 const KeyCodes = {
   comma: 188,
@@ -21,6 +22,7 @@ export default class NtfTags extends React.Component {
                 { id: 'Updates', text: 'Updates' },
                 { id: 'Important', text: 'Important' },
                 { id: 'Outdated', text: 'Outdated' },
+                { id: 'Upstream', text: 'Upstream' },
              ]
         };
         this.handleDelete = this.handleDelete.bind(this);
@@ -54,14 +56,12 @@ export default class NtfTags extends React.Component {
         const { tags, suggestions } = this.state;
         return (
             <div>
-
-                
-                {/* <ReactTags tags={tags}
+                <ReactTags tags={tags}
                     suggestions={suggestions}
                     handleDelete={this.handleDelete}
                     handleAddition={this.handleAddition}
                     handleDrag={this.handleDrag}
-                    delimiters={delimiters} /> */}
+                    delimiters={delimiters} />
             </div>
         )
     }

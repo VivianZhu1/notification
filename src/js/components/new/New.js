@@ -3,24 +3,48 @@ import React, {Component} from 'react';
 import NtfConfig from './NtgConfig'
 import NtfCalender from './NtfCalender';
 import NtfTags from './NtfTags';
+import *  as ntfAction from '../../actions/NtfAction'
+
+
+import { connect } from 'react-redux';
 
 
 const pStyle= {marginTop:"30px", fontWeight:"bold"};
 
+class New extends Component{
 
-export default class New extends Component{
+    constructor(props){
+        super(props);
+        console.log(props)
+        this.state = {summary:"", content: "", source:[], catetory:"",severity:""};
+    }
 
-    addTag(){
-        
+    createNtf( input ){
+        this.props.createNtf(input);
     }
 
     render(){
+        let summaryInput, content = null;
         return(
             <div style={{marginLeft:"20px"}}>
                 <br/>
-                <form className="form-control">
+                <form  onSubmit={e => {
+                        e.preventDefault();
+                        var inputval = {
+                        summary: summaryInput.value,
+                        // author: authorInput.value,
+                        // price: priceInput.value,
+                        content: content.value
+                        };
+
+                        console.log(inputval);
+                        this.createNtf(inputval);
+                        e.target.reset();
+                    }}
+                 className="form-control">
                   <p style={pStyle}>Step1: Notification Summary</p>   
-                  <input className="ntf-input" style={{width:"80%"}} placeholder="Summary about..."/> 
+                  <input className="ntf-input" style={{width:"80%"}} placeholder="Summary about..."
+                         ref={node => summaryInput = node}/> 
 
 
                   <p style={pStyle} >Step2: Notification Configurations</p>   
@@ -31,13 +55,11 @@ export default class New extends Component{
                   <p style={{fontSize:"8pt", display:"inline-block", marginLeft:"80px"}} >   HTML format supported </p>   
                   <a style={{fontSize:"8pt", display:"inline-block",  marginLeft:"60px"}}  href="/sample">  Download sample </a>   
                   </div>
-                   <textarea className="ntfTextArea" placeholder="notificatoin content..."/>
+                   <textarea className="ntfTextArea" placeholder="notificatoin content..."
+                            ref={node => content =node}/>
 
                   <p style={pStyle} >Step4: Add Tags</p>   
                   <div id="tag">
-                    {/* <input className="ntf-input" style={{width:"70%",  marginLeft:"3px"}} placeholder="Add tag..."/>
-                    <button onClick={ this.addTag.bind(this)} style={{marginLeft:"20px"}} className="btn btn-primary cfg_btn_addtag">ADD TAG</button>
-                    <textarea className="ntfTextArea"/> */}
                     <NtfTags />
                   </div>
                 
@@ -50,7 +72,7 @@ export default class New extends Component{
                  <hr/>
                  <div id="buttons" style={{display:"inline-block",marginBottom:"20px", marginTop:"20px"}}>
                     <button className="btn btn-success my-success">Preview</button>
-                    <button className="btn btn-success my-success">Create</button>
+                    <button className="btn btn-success my-success" type="submit" >Create</button>
                     <button className="btn btn-success my-success">Save</button>
                     <button className="btn btn-success my-success">Save as Template</button>
                  </div> 
@@ -59,5 +81,19 @@ export default class New extends Component{
             </div>
         );
     }
-
 }
+
+ const mapStateToProps = (state, props) => {
+    return{
+        ntf: state.ntfs
+    };
+};
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        createNtf: ntf => dispatch(ntfAction.createNtf(ntf))
+    }
+  };
+  
+
+export default connect( mapStateToProps,mapDispatchToProps )(New);
