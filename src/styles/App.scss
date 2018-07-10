@@ -1,0 +1,140 @@
+.App {
+  text-align: center;
+  background-color: grey;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.App-header {
+  background-color: #222;
+  height: 80px;
+  padding: 20px;
+  color: white;
+  width:100%;
+  text-align: center;
+}
+
+.App-title {
+  font-size: 3em;
+  color:white;
+  margin-top: 50px;
+  /* margin-bottom: 50px; */
+  text-align: center;
+  text-shadow: 5px 5px 10px #03242b;
+}
+
+.App-desc {
+  font-size: 1em;
+  color:white;
+  margin-top: 10px;
+  margin-bottom: 50px;
+  text-align: center;
+  text-shadow: 5px 5px 10px #03242b;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+body{
+  /* background-color:grey !important; */
+  background-image: url("../img/backgound.jpg");
+  /* background-size: 100% 100%; */
+}
+
+.tab{
+  width: 100px;
+  box-shadow: 5px -5px 10px 1px #0e0202c7;
+  margin-right:5px;
+}
+
+.cfg_btn{
+  width: 80px;
+  height:30px;
+  font-size: 9pt;
+  margin-left: 3px;
+
+}
+.cfg_btn_addtag {
+  @extend .cfg_btn;
+  margin-left:10px;
+  box-shadow: 1px 1px 20px 1px grey;
+}
+
+.my-container{
+  background-color: white;
+  padding-left: 0;
+  box-shadow: 10px 10px 30px !important;
+}
+
+.ntfConfig{
+  width:80%;
+  /* height:120px;  */
+  /* outline: 0px solid grey; */
+  box-shadow: 5px 5px 20px 1px grey;
+  margin-left: 3px;
+  overflow: auto;
+}
+
+.ntfTextArea{
+  width:80%;
+  height:100px; 
+  /* outline: 1px solid grey; */
+  box-shadow: 5px 5px 20px 1px grey;
+  margin-left: 3px;
+  margin-top:10px;
+  border:0;
+  font-size:10pt  
+}
+
+.my-success{
+  font-size: 11pt;
+  text-align: center;
+  margin-right: 10px;
+  width:140px
+
+}
+
+/* .react-datepicker-ignore-onclickoutside{
+  box-shadow: 1px 1px 20px 1px grey !important;
+  font-size: 9pt !important;
+} */
+
+.react-datepicker__input-container{
+  box-shadow: 1px 1px 20px 1px  #0d5561bd !important;
+  font-size: 10pt !important;  
+}
+
+.ntf-input{
+  /* width:400px !important; */
+  box-shadow:1px 1px 20px 1px grey !important;
+  font-size: 10pt  !important;
+  height:30px  !important;
+  border:0  !important
+} 
+
+.form-check{
+  margin-bottom: 5px;
+
+}
+
+
+
+/* .cfg_btn:focus{ */
+  /* background-color: white;
+  color:#138496;
+  font-weight: bolder; */
+/* } */
+
+/* form-control{
+  marginLeft: 50px;
+} */
+
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
