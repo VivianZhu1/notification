@@ -11,6 +11,12 @@ import { connect } from 'react-redux';
 
 const pStyle= {marginTop:"30px", fontWeight:"bold"};
 
+const resultInfoStyle = {
+    display:"flex",
+    // marginBottom:"20px",
+    padding:"30px"
+}
+
 class New extends Component{
 
     constructor(props){
@@ -36,35 +42,18 @@ class New extends Component{
         console.log("begin to save as template");
     }
 
-    componentDidUpdate(){
-        // this.toggleDivInfoStyle()
-    }
-
-    componentDidMount(){
-        //  this.toggleDivInfoStyle()
-    }
-
-    toggleDivInfoStyle(){
-        console.log(document.getElementById("info"), "div result info element");
-        if(this.props.status.toString().startsWith("Succeed")
-            &&  document.getElementById("info") !== null 
-            && document.getElementById("info").classList["value"] !== "ntf-alert-success"){
-            document.getElementById("info").classList.toggle("ntf-alert-success");
-        }else if( this.props.status.toString().startsWith("Failed")
-             && document.getElementById("info") !== null 
-                &&  document.getElementById("info").classList["value"] !== "ntf-alert-failure"){
-            document.getElementById("info").classList.toggle("ntf-alert-failure")
-        }
-    }
-
-
     render(){
         let summaryInput, content = null;
+        const resultInfo = [];
 
-        this.toggleDivInfoStyle()
+        if (this.props.status.toString().startsWith("Succeed")){
+            resultInfo.push(<div className="ntf-alert-success" style ={{resultInfoStyle}}> { this.props.status }</div>)
+        } else if(this.props.status.toString().startsWith("Failed")) {
+            resultInfo.push(<div className="ntf-alert-failure" style ={{resultInfoStyle}}> { this.props.status }</div>)
+        }
 
         return(
-            <div style={{marginLeft:"20px"}}>
+            <div style={{marginLeft:"20px", paddingBottom:"20px"}}>
                 <br/>
                 <form  onSubmit={e => {
 
@@ -80,7 +69,7 @@ class New extends Component{
 
                         e.target.reset();
                     }}
-                 className="form-control">
+                 className="form-control" >
                   <p style={pStyle}>Step1: Notification Summary</p>   
                   <input className="ntf-input" style={{width:"80%"}} placeholder="Summary about..."
                          ref={node => summaryInput = node} autoFocus/> 
@@ -117,17 +106,11 @@ class New extends Component{
                  </div> 
                 </form>
                <br/>   
-               <div id="info" onLoad={(e) => this.handlePreview} style={{display:"inline-block",marginBottom:"20px"}}>
-                    {/* {  this.props.ntfs.map( (n,i) => {
-                        return(
-                            <p key={i}> { n.summary !== undefined ? "" :"" }</p>
-                        );
 
-                    })} */}
-                  { this.props.status}
+               { resultInfo }
 
-               </div>  
             </div>
+
         );
 
        
