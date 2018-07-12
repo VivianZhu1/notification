@@ -16,35 +16,74 @@ class New extends Component{
     constructor(props){
         super(props);
         console.log(props)
-        this.state = {summary:"", content: "", source:[], catetory:"",severity:""};
+        this.divinfoRef = React.createRef();
+        
     }
 
     createNtf( input ){
         this.props.createNtf(input);
     }
 
+    handlePreview(e){
+        console.log("begin to preview");
+    }
+
+    handleSave(e){
+        console.log("begin to save");
+    }
+
+    handleSaveTemplate(e){
+        console.log("begin to save as template");
+    }
+
+    componentDidUpdate(){
+        // this.toggleDivInfoStyle()
+    }
+
+    componentDidMount(){
+        //  this.toggleDivInfoStyle()
+    }
+
+    toggleDivInfoStyle(){
+        console.log(document.getElementById("info"), "div result info element");
+        if(this.props.status.toString().startsWith("Succeed")
+            &&  document.getElementById("info") !== null 
+            && document.getElementById("info").classList["value"] !== "ntf-alert-success"){
+            document.getElementById("info").classList.toggle("ntf-alert-success");
+        }else if( this.props.status.toString().startsWith("Failed")
+             && document.getElementById("info") !== null 
+                &&  document.getElementById("info").classList["value"] !== "ntf-alert-failure"){
+            document.getElementById("info").classList.toggle("ntf-alert-failure")
+        }
+    }
+
+
     render(){
         let summaryInput, content = null;
+
+        this.toggleDivInfoStyle()
+
         return(
             <div style={{marginLeft:"20px"}}>
                 <br/>
                 <form  onSubmit={e => {
+
                         e.preventDefault();
+       
                         var inputval = {
                         summary: summaryInput.value,
-                        // author: authorInput.value,
-                        // price: priceInput.value,
                         content: content.value
                         };
 
-                        console.log(inputval);
+                        console.log("commit:",inputval);
                         this.createNtf(inputval);
+
                         e.target.reset();
                     }}
                  className="form-control">
                   <p style={pStyle}>Step1: Notification Summary</p>   
                   <input className="ntf-input" style={{width:"80%"}} placeholder="Summary about..."
-                         ref={node => summaryInput = node}/> 
+                         ref={node => summaryInput = node} autoFocus/> 
 
 
                   <p style={pStyle} >Step2: Notification Configurations</p>   
@@ -71,21 +110,36 @@ class New extends Component{
 
                  <hr/>
                  <div id="buttons" style={{display:"inline-block",marginBottom:"20px", marginTop:"20px"}}>
-                    <button className="btn btn-success my-success">Preview</button>
+                    <button className="btn btn-success my-success" onClick={(e) => { this.handlePreview(e)}}>Preview</button>
                     <button className="btn btn-success my-success" type="submit" >Create</button>
                     <button className="btn btn-success my-success">Save</button>
                     <button className="btn btn-success my-success">Save as Template</button>
                  </div> 
                 </form>
-               <br/>    
+               <br/>   
+               <div id="info" onLoad={(e) => this.handlePreview} style={{display:"inline-block",marginBottom:"20px"}}>
+                    {/* {  this.props.ntfs.map( (n,i) => {
+                        return(
+                            <p key={i}> { n.summary !== undefined ? "" :"" }</p>
+                        );
+
+                    })} */}
+                  { this.props.status}
+
+               </div>  
             </div>
         );
+
+       
+        // this.setState({ntfs:{}, status:""});
     }
 }
 
+// map state (store consist of reducer data) to props. Later on, this.props.ntf refer to store's ntf data.
  const mapStateToProps = (state, props) => {
     return{
-        ntf: state.ntfs
+        ntfs: state.ntfs,
+        status: state.status
     };
 };
 

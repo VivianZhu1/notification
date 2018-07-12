@@ -69,6 +69,7 @@ const calStyle={
                 <table className="table my-table">     
                     <thead className="thead-light">
                     <tr>
+                        <th>Id</th>         
                         <th>Summray</th>                        
                         <th>Content</th>
                         <th>CreateAt</th>
@@ -80,6 +81,7 @@ const calStyle={
                             this.props.ntfs.map((n, i) => {
                                 return(
                                  <tr key={i} id={i+1}>
+                                    <td>{n.id}</td>
                                     <td>{n.summary}</td>
                                     <td ><a href={n.avatar}>{n.avatar}</a></td>
                                     <td>{new Date(n.createdAt).toLocaleDateString('en-US')}</td>

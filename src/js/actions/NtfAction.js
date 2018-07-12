@@ -15,7 +15,8 @@ export const createNtf = (notification) => {
           dispatch(createNtfSuccess(response.data))
         })
         .catch(error => {
-          throw(error);
+          // throw(error);
+          dispatch(createNtfFailure(error))
         });
     };
   };
@@ -33,12 +34,19 @@ export const createNtf = (notification) => {
     };
   };
 
-  export const createNtfSuccess = (ntf) => {
+  export const createNtfSuccess = (ntfs) => {
     return {
       type: actionTypes.CREATE_NTF_SUCCESS,
-      ntf
+      ntfs
     }
   };
+
+  export const createNtfFailure = (ntfs) => {
+    return {
+      type: actionTypes.CREATE_NTF_FAILURE,
+      ntfs
+    }
+  }
 
 
   // action creator fetchNtfsSuccess, created an action which include {type, ntfs ( known as payload)}
