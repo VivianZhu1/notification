@@ -47,9 +47,9 @@ class New extends Component{
         const resultInfo = [];
 
         if (this.props.status.toString().startsWith("Succeed")){
-            resultInfo.push(<div className="ntf-alert-success" style ={{resultInfoStyle}}> { this.props.status }</div>)
+            resultInfo.push(<div key="1" className="ntf-alert-success" style ={{resultInfoStyle}}> { this.props.status }</div>)
         } else if(this.props.status.toString().startsWith("Failed")) {
-            resultInfo.push(<div className="ntf-alert-failure" style ={{resultInfoStyle}}> { this.props.status }</div>)
+            resultInfo.push(<div key="1" className="ntf-alert-failure" style ={{resultInfoStyle}}> { this.props.status }</div>)
         }
 
         return(
@@ -129,6 +129,7 @@ class New extends Component{
 const mapDispatchToProps = (dispatch) => {
     return {
         createNtf: ntf => dispatch(ntfAction.createNtf(ntf))
+        // createNtf: ntf => dispatch(ntfAction.createNtfLocal(ntf))
     }
   };
   

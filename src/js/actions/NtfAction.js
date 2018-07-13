@@ -1,6 +1,7 @@
 import * as actionTypes from './NtfActionTypes';
 import Axios from 'axios';
 
+
 // const apiUrl = 'http://localhost:8000/proxy/omc/notifications';
 
 // const config = {
@@ -57,3 +58,11 @@ export const createNtf = (notification) => {
     }
   };
   
+
+  export const createNtfLocal = (notification) => {
+    return (dispatch) => {
+      console.log(notification)
+      let ntf = {"id":100, content:notification.content, summary:notification.summary, createdAt:new Date()}
+      dispatch(createNtfSuccess(ntf))
+    };
+  };

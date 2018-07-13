@@ -83,7 +83,7 @@ const calStyle={
                                  <tr key={i} id={i+1}>
                                     <td>{n.id}</td>
                                     <td>{n.summary}</td>
-                                    <td ><a href={n.avatar}>{n.avatar}</a></td>
+                                    <td ><a href={n.content}>{n.content}</a></td>
                                     <td>{new Date(n.createdAt).toLocaleDateString('en-US')}</td>
                                     {/* <td>{n.content}</td> */}
                                     {/* <td><Link className="btn btn-primary my-primary" to={'/ntf/${n.id}'}>Edit</Link></td> */}
